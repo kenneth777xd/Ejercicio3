@@ -1,1 +1,37 @@
-tercero pendiente
+#include <iostream>
+#include <string>  
+#include <algorithm> 
+using namespace std;
+
+bool sonAnagramas(string palabra1, string palabra2) {
+    
+    if (palabra1 == palabra2) {
+        return false;
+    }
+
+    if (palabra1.length() != palabra2.length()) {
+        return false;
+    }
+
+
+    std::sort(palabra1.begin(), palabra1.end());
+    std::sort(palabra2.begin(), palabra2.end());
+
+
+    return palabra1 == palabra2;
+}
+
+
+int main() {
+ 
+    cout << boolalpha;
+
+    cout << "Prueba 1 (amor, roma): " << sonAnagramas("amor", "roma") << endl;
+    cout << "Prueba 2 (listen, silent): " << sonAnagramas("listen", "silent") << endl;
+    cout << "Prueba 3 (hola, hola): " << sonAnagramas("hola", "hola") << endl;
+    cout << "Prueba 4 (casa, saco): " << sonAnagramas("casa", "saco") << endl;
+    cout << "Prueba 5 (anagrama, anagarama): " << sonAnagramas("anagrama", "anagarama") << endl;
+    cout << "Prueba 6 (frase, fresa): " << sonAnagramas("frase", "fresa") << endl;
+
+    return 0;
+}
